@@ -8,12 +8,13 @@ public class Goal {
 
     public Goal(){}
 
-    public Goal(long id, String title, String description, String type, int goal) {
+    public Goal(long id, String title, String description, String type, int goal, Reward reward) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.type = type;
         this.goal = goal;
+        this.reward = reward;
     }
 
     private Long id;
@@ -21,6 +22,7 @@ public class Goal {
     private String description;
     private String type;
     private Integer goal;
+    private Reward reward;
 
     public Long getId() {
         return id;
@@ -40,5 +42,9 @@ public class Goal {
 
     public Integer getGoal() {
         return goal;
+    }
+
+    public Reward getReward() {
+        return reward;
     }
 }

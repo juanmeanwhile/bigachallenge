@@ -62,12 +62,12 @@ public class MyEndpoint {
     @ApiMethod(name = "getGoals", path= "goals")
     public CollectionResponse<Goal> getGoals() {
         List<Goal> ret = new ArrayList<>();
-        ret.add(new Goal(1000, "Easy walk steps", "Walk 500 steps a day", Goal.TYPE_STEP, 500));
-        ret.add(new Goal(1001, "Medium walk steps", "Walk 1000 steps a day", Goal.TYPE_STEP, 1000));
-        ret.add(new Goal(1002, "Hard walk steps", "Walk 6000 steps a day", Goal.TYPE_STEP, 6000));
-        ret.add(new Goal(1003, "Walk some distance", "Take a walk for 1 kilometer", Goal.TYPE_WALKING_DISTANCE, 1000));
-        ret.add(new Goal(1004, "Quick Run", "Burn that donut by running 1 kilometer", Goal.TYPE_RUNNING_DISTANCE, 1000));
-        ret.add(new Goal(1005, "Medium Run", "Zombie apocalypse may come any day soon, be prepared for the occasion", Goal.TYPE_RUNNING_DISTANCE, 5000));
+        ret.add(new Goal(1000, "Easy walk steps", "Walk 500 steps a day", Goal.TYPE_STEP, 500, new Reward("bronze_medal", 5)));
+        ret.add(new Goal(1001, "Medium walk steps", "Walk 1000 steps a day", Goal.TYPE_STEP, 1000, new Reward("silver_medal", 10)));
+        ret.add(new Goal(1002, "Hard walk steps", "Walk 6000 steps a day", Goal.TYPE_STEP, 6000, new Reward("gold_medal", 20)));
+        ret.add(new Goal(1003, "Walk some distance", "Take a walk for 1 kilometer", Goal.TYPE_WALKING_DISTANCE, 1000, new Reward("bronze_medal", 5)));
+        ret.add(new Goal(1004, "Quick Run", "Burn that donut by running 1 kilometer", Goal.TYPE_RUNNING_DISTANCE, 1000, new Reward("silver_medal", 5)));
+        ret.add(new Goal(1005, "Medium Run", "Zombie apocalypse may come any day soon, be prepared for the occasion", Goal.TYPE_RUNNING_DISTANCE, 5000, new Reward("zombie_hand", 43)));
 
         return CollectionResponse.<Goal> builder().setItems(ret)
                 .setNextPageToken("not used").build();
